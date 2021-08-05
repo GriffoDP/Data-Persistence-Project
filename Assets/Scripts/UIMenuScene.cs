@@ -10,11 +10,12 @@ using UnityEditor;
 public class UIMenuScene : MonoBehaviour
 {
     public TMP_InputField usernameText;
+    public TextMeshProUGUI bestScoreText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bestScoreText.text = $"Best Score: {NameManager.Instance.bestUsername}: " + NameManager.Instance.bestScore;
     }
 
     // Update is called once per frame
@@ -25,9 +26,7 @@ public class UIMenuScene : MonoBehaviour
 
     public void UpdateUsername()
     {
-        Debug.Log("Username: " + usernameText.text);
-        NameManager.Instance.username = usernameText.text;
-
+        NameManager.Instance.currentUsername = usernameText.text;
     }
 
     public void StartNew()

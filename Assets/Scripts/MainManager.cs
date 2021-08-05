@@ -86,12 +86,14 @@ public class MainManager : MonoBehaviour
         if (m_Points > NameManager.Instance.bestScore)
         {
             NameManager.Instance.bestScore = m_Points;
+            NameManager.Instance.bestUsername = NameManager.Instance.currentUsername;
             UpdateBestScore();
         }
     }
 
+
     private void UpdateBestScore()
     {
-        BestScoreText.text = $"Best Score: {NameManager.Instance.username}: " + NameManager.Instance.bestScore;
+        BestScoreText.text = $"Best Score: {NameManager.Instance.bestUsername}: " + NameManager.Instance.bestScore;
     }
 }
